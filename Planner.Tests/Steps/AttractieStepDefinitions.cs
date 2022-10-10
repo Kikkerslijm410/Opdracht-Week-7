@@ -28,6 +28,7 @@ public sealed class AttractieStepDefinitions
             (sender, cert, chain, sslPolicyErrors) => true;
     }
 
+    //1
     [Given("attractie (.*) bestaat")]
     public async Task AttractieBestaat(string naam)
     {
@@ -36,6 +37,20 @@ public sealed class AttractieStepDefinitions
     }
 
     [When("attractie (.*) wordt toegevoegd")]
+    public async Task AttractieToevoegen(string naam)
+    {
+        var request = new RestRequest("api/Attracties").AddJsonBody(new { Naam = naam, Reserveringen = new List<string>() });
+        response = await _client.ExecutePostAsync(request);
+    }
+
+    //2
+        [Given("attractie (.*) bestaat niet")]
+    public async Task AttractieBestaat(string naam)
+    {
+        await _databaseData.Context.SaveChangesAsync();
+    }
+
+    [When("attractie (.*) wordt deleten")]
     public async Task AttractieToevoegen(string naam)
     {
         var request = new RestRequest("api/Attracties").AddJsonBody(new { Naam = naam, Reserveringen = new List<string>() });
