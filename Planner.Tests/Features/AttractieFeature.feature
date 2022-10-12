@@ -1,13 +1,16 @@
 Feature: Attractie
 
-Scenario: BestaatAl
+Scenario: AttractieBestaatAl
     Given attractie Draaimolen bestaat
     When attractie Draaimolen wordt toegevoegd
     Then moet er een error 403 komen
 
-Scenario: PaginaBestaatNiet
-    Given attractie Draaimolen bestaat niet
-    When attractie Draaimolen wordt deleten
-    Then moet er een error 404 komen
+Scenario: AttractieBestaatNiet
+    Given attractie Zweefmolen bestaat niet
+    When attractie Zweefmolen wordt verwijderd
+    Then moet er een code 404 komen
 
-# Opdracht: voeg hier een scenario toe waarin een 404 wordt verwacht bij het deleten van een niet-bestaande attractie
+ Scenario: GastBestaatNiet
+    Given gast Lucas bestaat niet
+    When gast Lucas wordt verwijderd
+    Then moet er een foutcode 404 komen
