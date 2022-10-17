@@ -80,14 +80,14 @@ namespace Planner.Tests.Features
             this.TestTearDown();
         }
         
-        [Xunit.SkippableFactAttribute(DisplayName="BestaatAl")]
+        [Xunit.SkippableFactAttribute(DisplayName="AttractieBestaatAl")]
         [Xunit.TraitAttribute("FeatureTitle", "Attractie")]
-        [Xunit.TraitAttribute("Description", "BestaatAl")]
-        public void BestaatAl()
+        [Xunit.TraitAttribute("Description", "AttractieBestaatAl")]
+        public void AttractieBestaatAl()
         {
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("BestaatAl", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("AttractieBestaatAl", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 3
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -111,14 +111,14 @@ this.ScenarioInitialize(scenarioInfo);
             this.ScenarioCleanup();
         }
         
-        [Xunit.SkippableFactAttribute(DisplayName="PaginaBestaatNiet")]
+        [Xunit.SkippableFactAttribute(DisplayName="AttractieBestaatNiet")]
         [Xunit.TraitAttribute("FeatureTitle", "Attractie")]
-        [Xunit.TraitAttribute("Description", "PaginaBestaatNiet")]
-        public void PaginaBestaatNiet()
+        [Xunit.TraitAttribute("Description", "AttractieBestaatNiet")]
+        public void AttractieBestaatNiet()
         {
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("PaginaBestaatNiet", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("AttractieBestaatNiet", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 8
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -130,13 +130,44 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 9
-    testRunner.Given("attractie wordt verwijderd", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+    testRunner.Given("attractie Zweefmolen bestaat niet", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 10
-    testRunner.When("attractie bestaat niet", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+    testRunner.When("attractie Zweefmolen wordt verwijderd", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 11
-    testRunner.Then("moet er een error 404 komen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+    testRunner.Then("moet er een code 404 komen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.SkippableFactAttribute(DisplayName="GastBestaatNiet")]
+        [Xunit.TraitAttribute("FeatureTitle", "Attractie")]
+        [Xunit.TraitAttribute("Description", "GastBestaatNiet")]
+        public void GastBestaatNiet()
+        {
+            string[] tagsOfScenario = ((string[])(null));
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("GastBestaatNiet", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 13
+ this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 14
+    testRunner.Given("gast Lucas bestaat niet", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 15
+    testRunner.When("gast Lucas wordt verwijderd", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 16
+    testRunner.Then("moet er een foutcode 404 komen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
