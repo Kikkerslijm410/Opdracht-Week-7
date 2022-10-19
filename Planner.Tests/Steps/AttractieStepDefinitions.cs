@@ -42,6 +42,7 @@ public sealed class AttractieStepDefinitions
     public void Error(int httpCode){
         Assert.Equal(httpCode, (int)response!.StatusCode);
     }
+    //Einde Test 1
 
     //Test 2 AttractieBestaatNiet
     [Given("attractie (.*) bestaat niet")]
@@ -75,6 +76,7 @@ public sealed class AttractieStepDefinitions
     public void Code(int httpCode){
         Assert.Equal(httpCode, (int)response!.StatusCode);
     }
+    //Einde Test 2
 
     //Test 3 GastBestaatNiet
     [Given("gast (.*) bestaat niet")]
@@ -107,5 +109,6 @@ public sealed class AttractieStepDefinitions
     [Then("moet er een foutcode (.*) komen")]
     public void FoutCode(int httpCode){
         Assert.Equal(httpCode, (int)response!.StatusCode);
-    }    
+    }  
+    //Einde Test 3  
 }
