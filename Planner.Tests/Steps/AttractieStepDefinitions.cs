@@ -78,7 +78,32 @@ public sealed class AttractieStepDefinitions
     }
     //Einde Test 2
 
-    //Test 3 GastBestaatNiet
+    //Test 3 AttractieWordtSuccessvolToegevoegd
+    [Given("attractie (.*) bestaat niet")]
+    public async Task AttractieBestaatNietCheck(string naam){
+        var lijst = await _databaseData.Context.Attractie.ToArrayAsync();
+        bool test = true;
+        int i = 0;
+        while (test){
+            if (lijst[i].Naam == naam){
+                _databaseData.Context.Attractie.Remove(lijst[i]);
+                test = false;
+            }
+            i++;
+        }
+    }
+    [When("attractie (.*) wordt toegevoegd")]
+    public async Task AttractieToevoegen2(string naam){
+        var request = new RestRequest("api/Attracties").AddJsonBody(new { Naam = naam, Reserveringen = new List<string>() });
+        response = await _client.ExecutePostAsync(request);
+    }
+    [Then("moet er een code (.*) komen")]
+    public void ControleCode(int httpCode){
+        Assert.Equal(httpCode, (int)response!.StatusCode);
+    }
+    //Einde Test 3
+
+    //Test 4 GastBestaatNiet
     [Given("gast (.*) bestaat niet")]
     public async Task GastBestaatNiet(string naam){
         var lijst = await _databaseData.Context.Gast.ToArrayAsync();
@@ -110,5 +135,5 @@ public sealed class AttractieStepDefinitions
     public void FoutCode(int httpCode){
         Assert.Equal(httpCode, (int)response!.StatusCode);
     }  
-    //Einde Test 3  
+    //Einde Test 4  
 }
