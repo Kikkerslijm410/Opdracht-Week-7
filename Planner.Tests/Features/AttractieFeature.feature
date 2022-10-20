@@ -5,7 +5,7 @@ Scenario: AttractieBestaatAl
     When attractie Draaimolen wordt toegevoegd
     Then moet er een error 403 komen
 
-Scenario: AttractieBestaatNiet
+Scenario: AttractieBestaatNietEnWordtVerwijderd
     Given attractie Zweefmolen bestaat niet
     When attractie Zweefmolen wordt verwijderd
     Then moet er een code 404 komen
@@ -15,7 +15,7 @@ Scenario: AttractieWordtSuccessvolToegevoegd
     When attractie Achtbaan wordt toegevoegd
     Then moet er een code 201 komen
 
- Scenario: GastBestaatNiet
+ Scenario: GastBestaatNietEnWordtVerwijderd
     Given gast Lucas bestaat niet
     When gast Lucas wordt verwijderd
     Then moet er een foutcode 404 komen

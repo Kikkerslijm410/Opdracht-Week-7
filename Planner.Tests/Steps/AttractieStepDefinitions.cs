@@ -44,7 +44,7 @@ public sealed class AttractieStepDefinitions
     }
     //Einde Test 1
 
-    //Test 2 AttractieBestaatNiet
+    //Test 2 AttractieBestaatNietEnWordtVerwijderd
     [Given("attractie (.*) bestaat niet")]
     public async Task AttractieBestaatNiet(string naam){
         var lijst = await _databaseData.Context.Attractie.ToArrayAsync();
@@ -103,7 +103,7 @@ public sealed class AttractieStepDefinitions
     }
     //Einde Test 3
 
-    //Test 4 GastBestaatNiet
+    //Test 4 GastBestaatNietEnWordtVerwijderd
     [Given("gast (.*) bestaat niet")]
     public async Task GastBestaatNiet(string naam){
         var lijst = await _databaseData.Context.Gast.ToArrayAsync();
