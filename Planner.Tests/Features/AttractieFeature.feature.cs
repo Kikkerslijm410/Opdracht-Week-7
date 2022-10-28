@@ -111,14 +111,14 @@ this.ScenarioInitialize(scenarioInfo);
             this.ScenarioCleanup();
         }
         
-        [Xunit.SkippableFactAttribute(DisplayName="AttractieBestaatNiet")]
+        [Xunit.SkippableFactAttribute(DisplayName="AttractieBestaatNietEnWordtVerwijderd")]
         [Xunit.TraitAttribute("FeatureTitle", "Attractie")]
-        [Xunit.TraitAttribute("Description", "AttractieBestaatNiet")]
-        public void AttractieBestaatNiet()
+        [Xunit.TraitAttribute("Description", "AttractieBestaatNietEnWordtVerwijderd")]
+        public void AttractieBestaatNietEnWordtVerwijderd()
         {
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("AttractieBestaatNiet", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("AttractieBestaatNietEnWordtVerwijderd", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 8
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -173,14 +173,14 @@ this.ScenarioInitialize(scenarioInfo);
             this.ScenarioCleanup();
         }
         
-        [Xunit.SkippableFactAttribute(DisplayName="GastBestaatNiet")]
+        [Xunit.SkippableFactAttribute(DisplayName="GastBestaatNietEnWordtVerwijderd")]
         [Xunit.TraitAttribute("FeatureTitle", "Attractie")]
-        [Xunit.TraitAttribute("Description", "GastBestaatNiet")]
-        public void GastBestaatNiet()
+        [Xunit.TraitAttribute("Description", "GastBestaatNietEnWordtVerwijderd")]
+        public void GastBestaatNietEnWordtVerwijderd()
         {
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("GastBestaatNiet", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("GastBestaatNietEnWordtVerwijderd", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 18
  this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -199,6 +199,37 @@ this.ScenarioInitialize(scenarioInfo);
 #line hidden
 #line 21
     testRunner.Then("moet er een foutcode 404 komen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.SkippableFactAttribute(DisplayName="GastBestaatAl")]
+        [Xunit.TraitAttribute("FeatureTitle", "Attractie")]
+        [Xunit.TraitAttribute("Description", "GastBestaatAl")]
+        public void GastBestaatAl()
+        {
+            string[] tagsOfScenario = ((string[])(null));
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("GastBestaatAl", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 23
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 24
+    testRunner.Given("gast Lucas bestaat", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 25
+    testRunner.When("gast Lucas wordt toegevoegd", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 26
+    testRunner.Then("moet er een foutcode 403 komen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

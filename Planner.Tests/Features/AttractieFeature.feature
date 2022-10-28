@@ -19,3 +19,8 @@ Scenario: AttractieWordtSuccessvolToegevoegd
     Given gast Lucas bestaat niet
     When gast Lucas wordt verwijderd
     Then moet er een foutcode 404 komen
+
+Scenario: GastBestaatAl
+    Given gast Lucas bestaat
+    When gast Lucas wordt toegevoegd
+    Then moet er een foutcode 403 komen

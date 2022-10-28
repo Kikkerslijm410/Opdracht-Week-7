@@ -135,5 +135,30 @@ public sealed class AttractieStepDefinitions
     public void FoutCode(int httpCode){
         Assert.Equal(httpCode, (int)response!.StatusCode);
     }  
-    //Einde Test 4  
+    //Einde Test 4
+
+    //Test 5 GastBestaatEnWordtVerwijderd
+    [Given("gast (.*) bestaat")]
+    public async Task GastBestaat(string naam){
+        await _databaseData.Context.Gast.AddAsync(new Gast { Naam = naam });
+        await _databaseData.Context.SaveChangesAsync();
+    }
+    [When("gast (.*) wordt verwijderd")]
+    public async Task GastDelete2(string naam){
+        var lijst = await _databaseData.Context.Gast.ToArrayAsync();
+        bool test = true;
+        int i = 0;
+        while (test){
+            if (lijst[i].Naam == naam){
+                var request = new RestRequest("api/GastenController/"+lijst[i].Id);
+                response = await _client.DeleteAsync(request);
+            }
+            i++;
+        }
+    }
+    [Then("moet er een code (.*) komen")]
+    public void Code2(int httpCode){
+        Assert.Equal(httpCode, (int)response!.StatusCode);
+    }
+    //Einde Test 5  
 }
