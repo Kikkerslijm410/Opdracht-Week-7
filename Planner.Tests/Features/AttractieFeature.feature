@@ -1,6 +1,6 @@
 Feature: Attractie
 
-Scenario: AttractieBestaatAl
+Scenario: BestaatAl
     Given attractie Draaimolen bestaat
     When attractie Draaimolen wordt toegevoegd
     Then moet er een error 403 komen
@@ -11,16 +11,11 @@ Scenario: AttractieBestaatNietEnWordtVerwijderd
     Then moet er een code 404 komen
 
 Scenario: AttractieWordtSuccessvolToegevoegd
-    Given attractie Achtbaan bestaat niet
-    When attractie Achtbaan wordt toegevoegd
-    Then moet er een code 201 komen
+    Given attractie Achtbaan bestaat nog niet
+    When attractie Achtbaan wordt aangemaakt
+    Then moet de code 201 komen
 
- Scenario: GastBestaatNietEnWordtVerwijderd
+Scenario: GastBestaatNietEnWordtVerwijderd
     Given gast Lucas bestaat niet
     When gast Lucas wordt verwijderd
     Then moet er een foutcode 404 komen
-
-Scenario: GastBestaatAl
-    Given gast Lucas bestaat
-    When gast Lucas wordt toegevoegd
-    Then moet er een foutcode 403 komen

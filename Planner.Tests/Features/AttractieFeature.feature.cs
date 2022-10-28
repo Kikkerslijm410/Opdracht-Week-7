@@ -80,14 +80,14 @@ namespace Planner.Tests.Features
             this.TestTearDown();
         }
         
-        [Xunit.SkippableFactAttribute(DisplayName="AttractieBestaatAl")]
+        [Xunit.SkippableFactAttribute(DisplayName="BestaatAl")]
         [Xunit.TraitAttribute("FeatureTitle", "Attractie")]
-        [Xunit.TraitAttribute("Description", "AttractieBestaatAl")]
-        public void AttractieBestaatAl()
+        [Xunit.TraitAttribute("Description", "BestaatAl")]
+        public void BestaatAl()
         {
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("AttractieBestaatAl", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("BestaatAl", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 3
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -161,13 +161,13 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 14
-    testRunner.Given("attractie Achtbaan bestaat niet", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+    testRunner.Given("attractie Achtbaan bestaat nog niet", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 15
-    testRunner.When("attractie Achtbaan wordt toegevoegd", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+    testRunner.When("attractie Achtbaan wordt aangemaakt", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 16
-    testRunner.Then("moet er een code 201 komen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+    testRunner.Then("moet de code 201 komen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -182,7 +182,7 @@ this.ScenarioInitialize(scenarioInfo);
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("GastBestaatNietEnWordtVerwijderd", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 18
- this.ScenarioInitialize(scenarioInfo);
+this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
             {
@@ -199,37 +199,6 @@ this.ScenarioInitialize(scenarioInfo);
 #line hidden
 #line 21
     testRunner.Then("moet er een foutcode 404 komen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-            }
-            this.ScenarioCleanup();
-        }
-        
-        [Xunit.SkippableFactAttribute(DisplayName="GastBestaatAl")]
-        [Xunit.TraitAttribute("FeatureTitle", "Attractie")]
-        [Xunit.TraitAttribute("Description", "GastBestaatAl")]
-        public void GastBestaatAl()
-        {
-            string[] tagsOfScenario = ((string[])(null));
-            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("GastBestaatAl", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 23
-this.ScenarioInitialize(scenarioInfo);
-#line hidden
-            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
-            {
-                testRunner.SkipScenario();
-            }
-            else
-            {
-                this.ScenarioStart();
-#line 24
-    testRunner.Given("gast Lucas bestaat", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line hidden
-#line 25
-    testRunner.When("gast Lucas wordt toegevoegd", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 26
-    testRunner.Then("moet er een foutcode 403 komen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

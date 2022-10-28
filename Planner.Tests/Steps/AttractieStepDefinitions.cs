@@ -20,7 +20,7 @@ public sealed class AttractieStepDefinitions
 
     public AttractieStepDefinitions(DatabaseData databaseData){
         _databaseData = databaseData;
-        _client = new RestClient("https://localhost:5002/");
+        _client = new RestClient("http://localhost:5001/");
 
         // Het HTTPS certificaat hoeft niet gevalideerd te worden, dus return true
         ServicePointManager.ServerCertificateValidationCallback +=
@@ -42,33 +42,26 @@ public sealed class AttractieStepDefinitions
     public void Error(int httpCode){
         Assert.Equal(httpCode, (int)response!.StatusCode);
     }
-    //Einde Test 1
+    //Einde test 1
 
     //Test 2 AttractieBestaatNietEnWordtVerwijderd
     [Given("attractie (.*) bestaat niet")]
     public async Task AttractieBestaatNiet(string naam){
         var lijst = await _databaseData.Context.Attractie.ToArrayAsync();
-        bool test = true;
-        int i = 0;
-        while (test){
-            if (lijst[i].Naam == naam){
+        for(int i=0; i< await _databaseData.Context.Attractie.CountAsync<Attractie>(); i++){
+            if(lijst[i].Naam == naam){
                 _databaseData.Context.Attractie.Remove(lijst[i]);
-                test = false;
             }
-            i++;
         }
     }
     [When("attractie (.*) wordt verwijderd")]
     public async Task AttractieDelete(string naam){
         var lijst = await _databaseData.Context.Attractie.ToArrayAsync();
-        bool test = true;
-        int i = 0;
-        while (test){
-            if (lijst[i].Naam == naam){
+        for(int i=0; i< await _databaseData.Context.Attractie.CountAsync<Attractie>(); i++){
+            if(lijst[i].Naam == naam){
                 var request = new RestRequest("api/Attracties/"+lijst[i].Id);
                 response = await _client.DeleteAsync(request);
             }
-            i++;
         }
         response = await _client.DeleteAsync(new RestRequest("api/Attracties/"+ await _databaseData.Context.Attractie.CountAsync()+1));
     }
@@ -79,25 +72,21 @@ public sealed class AttractieStepDefinitions
     //Einde Test 2
 
     //Test 3 AttractieWordtSuccessvolToegevoegd
-    [Given("attractie (.*) bestaat niet")]
+    [Given("attractie (.*) bestaat nog niet")]
     public async Task AttractieBestaatNietCheck(string naam){
         var lijst = await _databaseData.Context.Attractie.ToArrayAsync();
-        bool test = true;
-        int i = 0;
-        while (test){
-            if (lijst[i].Naam == naam){
+        for(int i=0; i< await _databaseData.Context.Attractie.CountAsync<Attractie>(); i++){
+            if(lijst[i].Naam == naam){
                 _databaseData.Context.Attractie.Remove(lijst[i]);
-                test = false;
             }
-            i++;
         }
     }
-    [When("attractie (.*) wordt toegevoegd")]
+    [When("attractie (.*) wordt aangemaakt")]
     public async Task AttractieToevoegen2(string naam){
         var request = new RestRequest("api/Attracties").AddJsonBody(new { Naam = naam, Reserveringen = new List<string>() });
         response = await _client.ExecutePostAsync(request);
     }
-    [Then("moet er een code (.*) komen")]
+    [Then("moet de code (.*) komen")]
     public void ControleCode(int httpCode){
         Assert.Equal(httpCode, (int)response!.StatusCode);
     }
@@ -107,27 +96,20 @@ public sealed class AttractieStepDefinitions
     [Given("gast (.*) bestaat niet")]
     public async Task GastBestaatNiet(string naam){
         var lijst = await _databaseData.Context.Gast.ToArrayAsync();
-        bool test = true;
-        int i = 0;
-        while (test){
-            if (lijst[i].Naam == naam){
+        for(int i=0; i< await _databaseData.Context.Gast.CountAsync<Gast>(); i++){
+            if(lijst[i].Naam == naam){
                 _databaseData.Context.Gast.Remove(lijst[i]);
-                test = false;
             }
-            i++;
         }
     }
     [When("gast (.*) wordt verwijderd")]
     public async Task GastDelete(string naam){
         var lijst = await _databaseData.Context.Gast.ToArrayAsync();
-        bool test = true;
-        int i = 0;
-        while (test){
-            if (lijst[i].Naam == naam){
+        for(int i=0; i< await _databaseData.Context.Gast.CountAsync<Gast>(); i++){
+            if(lijst[i].Naam == naam){
                 var request = new RestRequest("api/GastenController/"+lijst[i].Id);
                 response = await _client.DeleteAsync(request);
             }
-            i++;
         }
         response = await _client.DeleteAsync(new RestRequest("api/GastenController/"+ await _databaseData.Context.Gast.CountAsync()+1));
     }
@@ -136,29 +118,9 @@ public sealed class AttractieStepDefinitions
         Assert.Equal(httpCode, (int)response!.StatusCode);
     }  
     //Einde Test 4
+}
 
-    //Test 5 GastBestaatEnWordtVerwijderd
-    [Given("gast (.*) bestaat")]
-    public async Task GastBestaat(string naam){
-        await _databaseData.Context.Gast.AddAsync(new Gast { Naam = naam });
-        await _databaseData.Context.SaveChangesAsync();
-    }
-    [When("gast (.*) wordt verwijderd")]
-    public async Task GastDelete2(string naam){
-        var lijst = await _databaseData.Context.Gast.ToArrayAsync();
-        bool test = true;
-        int i = 0;
-        while (test){
-            if (lijst[i].Naam == naam){
-                var request = new RestRequest("api/GastenController/"+lijst[i].Id);
-                response = await _client.DeleteAsync(request);
-            }
-            i++;
-        }
-    }
-    [Then("moet er een code (.*) komen")]
-    public void Code2(int httpCode){
-        Assert.Equal(httpCode, (int)response!.StatusCode);
-    }
-    //Einde Test 5  
+class AttractieToegevoegd
+{
+    public int Id { get; set; }
 }
